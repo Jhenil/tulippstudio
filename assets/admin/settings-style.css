@@ -1,0 +1,151 @@
+/* Basic Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: "helvetica";
+}
+
+@font-face {
+  font-family: "helvetica";
+  src: url("http://localhost/tulippstudio/assets/fonts/Helvetica.ttf");
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Settings Page Layout */
+.settings-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #eaaac4;
+  padding: 20px 0px;
+  color: white;
+  animation: ltr 1s forwards;
+}
+
+@keyframes ltr {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: white;
+  font-size: 4rem;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li h2,
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  transition-duration: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  transition-duration: 0.3s;
+  color: #eaaac4;
+  background-color: #ffffff;
+  /* border-radius: 4px; */
+}
+
+.sidebar-title {
+  font-size: 2.2rem;
+}
+
+/* Content Area */
+.settings-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  animation: fadein 1s forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: calc(100% - 22px);
+  padding: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="file"] {
+  padding: 3px;
+}
+
+button {
+  background-color: #eaaac4;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+  transition-duration: 0.5s;
+}
+
+button:hover {
+  background-color: #d18fae;
+  transition-duration: 0.5s;
+}

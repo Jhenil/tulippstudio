@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: "helvetica";
+  background-color: #edd4fc;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@font-face {
+  font-family: "helvetica";
+  src: url("http://localhost/tulippstudio/assets/fonts/Helvetica.ttf");
+}
+
+.slideshow {
+  position: relative;
+  height: 100vh;
+  width: 70vw;
+  background: url("http://localhost/tulippstudio/assets/images/assets/bg.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  animation: ltr 1s forwards;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Dark overlay */
+}
+
+.overlay-text {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.overlay-text h1 {
+  font-size: 7em;
+  margin: 0;
+}
+
+.overlay-text h3 {
+  font-size: 3.5em;
+  margin: 10px 0 0;
+}
+
+.overlay-text a {
+  color: #edd4fc;
+  text-decoration: 1px transparent;
+  transition-duration: 0.4s;
+}
+
+.overlay-text a:hover {
+  transition-duration: 0.4s;
+  text-decoration: underline;
+}
+
+.r_box {
+  width: 30vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rtl 1s forwards;
+}
+
+.login-container {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: auto 25px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.login-container input {
+  outline: none;
+  font-size: 1.1rem;
+  padding: 10px;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 446px;
+  box-sizing: border-box;
+}
+
+.login-container button {
+  width: 100%;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.4s, transform 0.2s;
+}
+
+.login-container button:hover {
+  background-color: #218838;
+  transform: scale(1.01);
+}
+
+.login-container button:active {
+  transform: scale(0.95);
+}
+
+@keyframes ltr {
+  from {
+    transform: translateX(-900px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes rtl {
+  from {
+    transform: translateX(300px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+
+
+
+/* Media queries */
+/* Base styles remain the same */
+
+@media (max-width: 1200px) {
+  .slideshow {
+    width: 50vw;
+  }
+
+  .r_box {
+    width: 50vw;
+  }
+
+  .login-container {
+    padding: 30px;
+  }
+
+  .overlay-text h1 {
+    font-size: 5em;
+  }
+
+  .overlay-text h3 {
+    font-size: 2.5em;
+  }
+
+  .login-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  
+  
+  .slideshow {
+    width: 50vw;
+  }
+
+  .r_box {
+    width: 50vw;
+  }
+
+  .login-container {
+    margin: 20px;
+  }
+
+  .overlay-text h1 {
+    font-size: 4em;
+  }
+
+  .overlay-text h3 {
+    font-size: 2em;
+  }
+
+  .login-container h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .overlay-text {
+    display: none;
+  }
+
+  .slideshow {
+    width: 100vw;
+  }
+
+  .r_box {
+    position: absolute;
+    width: 90vw;
+  }
+
+  .overlay-text h1 {
+    font-size: 3em;
+  }
+
+  .overlay-text h3 {
+    font-size: 1.5em;
+  }
+
+  .login-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-container input,
+  .login-container button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-text h1 {
+    font-size: 3em;
+  }
+
+  .overlay-text h3 {
+    font-size: 1.5em;
+  }
+
+  .login-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-container input,
+  .login-container button {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,424 @@
+/* Basic Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: "helvetica", sans-serif;
+}
+
+*::selection {
+  background-color: #2c3e50;
+  color: #e6e6fa;
+}
+
+body {
+  display: flex;
+  color: #333;
+  background-color: #e6e6fa;
+}
+
+@font-face {
+  font-family: "helvetica";
+  src: url("http://localhost/tulippstudio/assets/fonts/Helvetica.ttf");
+}
+
+/* .sidebar {
+  width: 250px;
+  background-color: #eaaac4;
+  padding: 20px 0px;
+  color: white;
+  min-height: 100vh;
+  animation: ltr 1s forwards;
+} */
+
+.sidebar {
+  width: 250px;
+  background-color: #eaaac4;
+  padding: 20px 0px;
+  color: white;
+  min-height: 100vh;
+  animation: ltr 1s forwards;
+  overflow-y: hidden !important;
+}
+
+@keyframes ltr {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+.sidebar h2 {
+  text-align: center;
+  color: white;
+  font-size: 4rem;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li h2,
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  transition-duration: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  transition-duration: 0.3s;
+  color: #eaaac4;
+  background-color: #ffffff;
+  /* border-radius: 4px; */
+}
+
+.sidebar-title {
+  font-size: 2.2rem;
+}
+
+@keyframes blink {
+  from {
+    /* text-shadow: 0px 0px 10px #975f75; */
+    opacity: 1;
+  }
+
+  to {
+    /* text-shadow: none; */
+    opacity: 0;
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  /* min-height: 100vh; */
+  background-color: white;
+  animation: fadein 1s forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header a {
+  float: right;
+  background-color: #ecbcbf;
+  font-size: 1.5rem;
+  padding: 3px 7px;
+  border-radius: 5px;
+  color: white;
+}
+
+.widgets {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.widget {
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  width: 18%;
+  font-size: 1.3rem;
+  text-align: center;
+  min-height: 120px;
+  border: 1px solid white;
+  box-shadow: 0px 0px 5px #808080;
+  border-bottom: 5px solid #a9a9a9;
+  transition-duration: 0.3s;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.widget:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.widget:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.widget:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.widget:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.widget:hover {
+  cursor: grab;
+  transition-duration: 0.3s;
+  transform: translateY(-5px);
+}
+
+/* 
+.widget:nth-child(odd) {
+  border-bottom: 5px solid #2c3e50;
+}
+
+.widget:nth-child(even) {
+  border-bottom: 5px solid #3498db;
+} */
+
+.table-section {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+  vertical-align: top;
+}
+
+th,
+td {
+  padding: 7px;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.delete {
+  float: right;
+  /* width: 40%; */
+  text-align: center;
+  text-decoration: none;
+  background-color: #000;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.delete:hover {
+  transition-duration: 0.3s;
+  background-color: #9c2c2e;
+}
+
+.edit {
+  float: left;
+  width: 40%;
+  text-align: center;
+  text-decoration: none;
+  background-color: #808080;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.edit:hover {
+  transition-duration: 0.3s;
+  background-color: rgb(188 56 119);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Product Management */
+.product-management {
+  margin-top: 30px;
+}
+
+.product-form {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  /* margin-bottom: 30px; */
+}
+
+.product-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.product-form input,
+.product-form textarea,
+/* .product-form select, */
+.product-form button {
+  display: block;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  width: calc(100% - 24px);
+  font-size: 1rem;
+  transition-duration: 0.3s;
+}
+
+.product-form select {
+  display: block;
+  margin: 10px 0;
+  padding: 12px 7px;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  width: calc(100% - 24px);
+  font-size: 1rem;
+}
+
+.product-form input[type="file"]::-webkit-file-upload-button {
+  margin-right: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
+  border: 0;
+  outline: 0px;
+  background-color: grey;
+  transition-duration: 0.5s;
+}
+
+.product-form input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: black;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.product-form input:focus,
+.product-form textarea:focus {
+  border-color: #3498db;
+  outline: none;
+  transition-duration: 0.5s;
+}
+
+.product-form button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.product-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Edit Product Page */
+.product-form {
+  width: calc(100% - 24px);
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.product-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.product-form input,
+.product-form textarea {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+  transition-duration: 0.3s;
+}
+
+.product-form input[type="number"]::-webkit-inner-spin-button,
+.product-form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.product-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.product-form input:focus,
+.product-form textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.product-form button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.product-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Admin Orders CSS */
+.orders-section {
+  padding: 20px;
+}
+
+.status-message {
+  color: green;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
