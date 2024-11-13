@@ -19,6 +19,10 @@ class OrderModel extends Model
 
     public function getOrders()
     {
+        // return $this->select('sales.*, products.name AS product_name, users.user_fname, users.user_lname, users.email')
+        //     ->join('products', 'products.product_id = sales.product_id')
+        //     ->join('users', 'users.user_id = sales.user_id')
+        //     ->findAll();
         return $this->findAll();
     }
 
