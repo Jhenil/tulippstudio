@@ -11,43 +11,30 @@
         <table class="users-table">
             <thead>
                 <tr>
+                    <th>Sr No.</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (!empty($users)): ?>
+                    <?php $count = 1; ?>
                     <?php foreach ($users as $user): ?>
                         <tr>
-                            <td><?= $user['username']; ?></td>
+                            <td><?= $count ?></td>
+                            <td><?= $user['user_fname']; ?></td>
                             <td><?= $user['email']; ?></td>
-                            <td><?= ucfirst($user['role']); ?></td>
                             <td><?= ucfirst($user['status']); ?></td>
                             <td>
-                                <!-- Edit Form -->
-                                <form action="/admin/updateUser" method="post">
-                                    <input type="text" name="username" value="<?= $user['username']; ?>" required>
-                                    <input type="email" name="email" value="<?= $user['email']; ?>" required>
-                                    <select name="role">
-                                        <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : ''; ?>>Admin</option>
-                                        <option value="user" <?= $user['role'] == 'user' ? 'selected' : ''; ?>>User</option>
-                                    </select>
-                                    <select name="status">
-                                        <option value="active" <?= $user['status'] == 'active' ? 'selected' : ''; ?>>Active</option>
-                                        <option value="inactive" <?= $user['status'] == 'inactive' ? 'selected' : ''; ?>>Inactive</option>
-                                    </select>
-                                    <input type="hidden" name="user_id" value="<?= $user['id']; ?>">
-                                    <button type="submit">Update</button>
-                                </form>
-
-                                <!-- Delete Action -->
-                                <a href="/admin/deleteUser/<?= $user['id']; ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                                <a class="delete" href="/admin/deleteUser/<?= $user['user_id']; ?>" onclick="return confirm('Are you sure?');">
+                                    <i style="color: red;" class="fa fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
+                    <?php $count++; ?>
                 <?php else: ?>
                     <tr>
                         <td colspan="5">No users available</td>

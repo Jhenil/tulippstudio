@@ -21,9 +21,15 @@ class OrderModel extends Model
     {
         // return $this->select('sales.*, products.name AS product_name, users.user_fname, users.user_lname, users.email')
         //     ->join('products', 'products.product_id = sales.product_id')
-        //     ->join('users', 'users.user_id = sales.user_id')
+        //     ->join('users', 'users.user_id = sales.user_id', 'users.user_fname')
         //     ->findAll();
-        return $this->findAll();
+        return $this->db->table('orders')
+            ->select('orders.order_id, orders.total_amount, orders.status, orders.created_at, users.user_fname')
+            ->join('users', 'orders.user_id = users.user_id')
+            ->get()
+            ->getResultArray();
+
+        // return $this->findAll();
     }
 
     public function updateStatus($id, $status)

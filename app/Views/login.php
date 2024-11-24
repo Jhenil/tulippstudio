@@ -16,7 +16,6 @@
                     <?= session()->getFlashdata('error') ?>
                 </div>
             <?php endif; ?>
-
             <form action="<?= site_url('login') ?>" method="post">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" required>

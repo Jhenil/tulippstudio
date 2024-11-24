@@ -18,6 +18,10 @@ $routes->post('login', 'User::login');
 $routes->get('logout', 'User::logout');
 
 
+$routes->get('store/search', 'Products::search');
+$routes->get('store/liveSearch', 'Products::liveSearch');
+
+
 // cart routes
 $routes->get('cart', 'Cart::index');
 $routes->post('cart/add', 'Cart::addToCart');

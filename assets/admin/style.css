@@ -137,6 +137,7 @@ a {
 
 .widgets {
   display: flex;
+  flex: auto;
   justify-content: space-evenly;
 }
 
@@ -148,11 +149,11 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  width: 18%;
   font-size: 1.3rem;
   text-align: center;
   min-height: 120px;
   border: 1px solid white;
+  padding: 30px 70px;
   box-shadow: 0px 0px 5px #808080;
   border-bottom: 5px solid #a9a9a9;
   transition-duration: 0.3s;
@@ -230,19 +231,17 @@ th {
 }
 
 .delete {
-  float: right;
+  /* float: right; */
   /* width: 40%; */
-  text-align: center;
+  /* text-align: center; */
   text-decoration: none;
-  background-color: #000;
-  color: white;
   padding: 5px;
   border-radius: 4px;
 }
 
 .delete:hover {
   transition-duration: 0.3s;
-  background-color: #9c2c2e;
+  color: #9c2c2e;
 }
 
 .edit {
@@ -250,15 +249,14 @@ th {
   width: 40%;
   text-align: center;
   text-decoration: none;
-  background-color: #808080;
-  color: white;
+  color: blue;
   padding: 5px;
   border-radius: 4px;
 }
 
 .edit:hover {
   transition-duration: 0.3s;
-  background-color: rgb(188 56 119);
+  /* background-color: #bc3877; */
 }
 
 tbody tr:nth-child(odd) {
@@ -421,4 +419,21 @@ tbody tr:nth-child(odd) {
   color: green;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.action-btn {
+  display: flex;
+  justify-content: space-around;
+  /* padding: 5px; */
+  align-items: center;
+}
+
+.action-btn form button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn a {
+  padding: 0 10px;
 }

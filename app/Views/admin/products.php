@@ -48,18 +48,20 @@
                                     No image
                                 <?php endif; ?>
                             </td>
-                            <td>
+                            <td class="action-btn">
                                 <a class="delete" href="product/delete/<?php echo $product['product_id']; ?>">
                                     <!-- onclick="return confirm('Are you sure?');" -->
                                     <?php if ($product['status'] == "1") {
-                                        echo "Inactive";
+                                        echo "<i style='color: red;' class='fa-solid fa-eye-slash'></i>";
                                     }
                                     if ($product['status'] == "0") {
-                                        echo "Active";
+                                        echo "<i style='color: green;' class='fa-solid fa-eye'></i>";
                                     } ?>
 
                                 </a>
-                                <a class="edit" href="product/edit/<?php echo $product['product_id']; ?>">Edit</a>
+                                <a class="edit" href="product/edit/<?php echo $product['product_id']; ?>">
+                                    <i class='fa-solid fa-pen-to-square'></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

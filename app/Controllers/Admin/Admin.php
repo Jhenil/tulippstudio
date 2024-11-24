@@ -4,13 +4,36 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\AdminModel;
+use App\Models\OrderModel;
 use App\Models\SettingsModel;
+use App\Models\UsersModel;
 
 class Admin extends BaseController
 {
     public function index()
     {
-        return view('admin/dashboard');
+        $orderModel = new OrderModel();
+        $userModel = new UsersModel();
+
+        // sales amount
+        $total_sales_row = $orderModel->query("SELECT sum(`total_amount`) FROM `orders`");
+        $total_sales = $total_sales_row->getResultArray()[0]['sum(`total_amount`)'];
+
+        // order count
+        $total_count_row = $orderModel->query("SELECT COUNT(*) FROM `orders`");
+        $total_count = $total_count_row->getResultArray()[0]['COUNT(*)'];
+
+        // user count
+        $total_user_count_row = $userModel->query("SELECT COUNT(*) FROM `users`");
+        $total_user_count = $total_user_count_row->getResultArray()[0]['COUNT(*)'];
+
+        $data = [
+            'total_sales' => $total_sales,
+            'total_orders' => $total_count,
+            'total_users' => $total_user_count,
+        ];
+
+        return view('admin/dashboard', $data);
     }
 
     public function login()
@@ -28,7 +51,7 @@ class Admin extends BaseController
         $user = $userModel->where('username', $username)->first();
 
         if ($user && password_verify($password, $user['password'])) {
-        // if ($user && $user['password']) {
+            // if ($user && $user['password']) {
             session()->set([
                 'user_id' => $user['id'],
                 'isLoggedin' => true,

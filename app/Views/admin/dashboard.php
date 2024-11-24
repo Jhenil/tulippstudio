@@ -6,23 +6,45 @@
     </div>
     <div class="widgets">
         <div class="widget">
+            <h3><?php
+
+                date_default_timezone_set('Asia/Kolkata');
+                $hour = date('H');
+                $dayTerm = ($hour >= 19) ? "Nighty" : (($hour >= 17) ? "Evening" : (($hour >= 12) ? "Afternoon" : "Morning"));
+                echo "Good " . $dayTerm . ",";
+                ?></h3>
+            <p>
+                <span id="greeting">
+                    <?= $admin_name ?? "Admin" ?>!
+                </span>
+            </p>
+        </div>
+        <div class="widget">
             <h3>Total Sales</h3>
-            <p>₹<span id="total-sales">0.00</span></p>
+            <p>
+                <span id="total-sales">
+                    ₹<?= $total_sales ?>
+                </span>
+            </p>
         </div>
         <div class="widget">
             <h3>Total Orders</h3>
-            <p><span id="total-orders">0</span></p>
+            <p>
+                <span id="total-orders">
+                    <?= $total_orders ?>
+                </span>
+            </p>
         </div>
         <div class="widget">
             <h3>Total Users</h3>
-            <p><span id="total-users">0</span></p>
-        </div>
-        <div class="widget">
-            <h3>Low Stock Alerts</h3>
-            <p><span id="low-stock">No alerts</span></p>
+            <p>
+                <span id="total-users">
+                    <?= $total_users ?>
+                </span>
+            </p>
         </div>
     </div>
-    <div class="table-section">
+    <!-- <div class="table-section">
         <h2>Recent Orders</h2>
         <table>
             <thead>
@@ -35,9 +57,8 @@
                 </tr>
             </thead>
             <tbody id="orders-table">
-                <!-- Dynamic Order Rows Here -->
             </tbody>
         </table>
-    </div>
+    </div> -->
 </div>
 <?php include 'footer.php' ?>

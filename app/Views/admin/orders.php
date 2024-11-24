@@ -23,20 +23,24 @@
                     <?php foreach ($orders as $order): ?>
                         <tr>
                             <td><?= $order['order_id']; ?></td>
-                            <td><?= $order['customer_name']; ?></td>
+                            <td><?= $order['user_fname']; ?></td>
                             <td>₹<?= $order['total_amount']; ?></td>
                             <td><?= ucfirst($order['status']); ?></td>
-                            <td>
-                                <form action="/admin/updateOrderStatus" method="post">
+                            <td class="action-btn">
+                                <form action="updateOrderStatus" method="post">
                                     <select name="status">
                                         <option value="pending" <?= $order['status'] == 'pending' ? 'selected' : ''; ?>>Pending</option>
                                         <option value="shipped" <?= $order['status'] == 'shipped' ? 'selected' : ''; ?>>Shipped</option>
                                         <option value="completed" <?= $order['status'] == 'completed' ? 'selected' : ''; ?>>Completed</option>
                                     </select>
-                                    <input type="hidden" name="order_id" value="<?= $order['id']; ?>">
-                                    <button type="submit">Update</button>
+                                    <input type="hidden" name="order_id" value="<?= $order['order_id']; ?>">
+                                    <button type="submit">
+                                        <i style="color: blue; font-size: 18px;" class="fa-solid fa-rotate"></i>
+                                    </button>
                                 </form>
-                                <a href="/admin/deleteOrder/<?= $order['id']; ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                                <a style="color: red;" href="deleteOrder/<?= $order['order_id']; ?>" onclick="return confirm('Are you sure?');">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

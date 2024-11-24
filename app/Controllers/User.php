@@ -103,6 +103,8 @@ class User extends Controller
                     'email' => $user['email'],
                     'logged_in' => true,
                 ]);
+
+                $UsersModel->query("UPDATE users SET `last_login` = current_timestamp() WHERE `user_id` = user_id");
                 return redirect()->to('/cart');
             } else {
                 $session->setFlashdata('error', 'Invalid password');

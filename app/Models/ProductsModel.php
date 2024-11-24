@@ -25,6 +25,21 @@ class ProductsModel extends Model
         'status',
     ];
 
+    // public function searchProducts($searchTerm)
+    // {
+    //     return $this->table($this->table)
+    //         ->like('name', $searchTerm, 'both')
+    //         ->orLike('description', $searchTerm, 'both')
+    //         ->findAll();
+    // }
+
+    public function searchProducts($searchTerm)
+    {
+        return $this->like('name', $searchTerm)
+            ->orLike('description', $searchTerm, 'both')
+            ->findAll();
+    }
+
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
